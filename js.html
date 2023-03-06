@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <style>
+        .DIV{
+            border: 3px solid blue;
+            width: 600px;
+            height:450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="DIV m-4 container ">
+        <h2 class="mt-4 text-center">Exchange Rate</h2> <br>
+    <p>Today Rate: <br> 1 USD = 3400 kyats <br> 1 SGD = 1500 kyats <br> 1 EURO = 3000 kyats</p>
+ <br>
+        <input type="number" placeholder="InputMMk" id="MMK">MMK  TO <span>USD</span>   
+        <button id="calc">Calculate</button>
+        <br><br>
+        <p id="amount">Amount :</p>
+        <p id="transfer">Transfer Fee : 0.1 USD</p>
+        <p id="total">Total Amount : </p>
+    </div>
+
+    <script>
+        let USDRate = 3400 ;
+        let transfee = 0.1 ;
+        let inputMMK = document.querySelector("#MMK");
+        let calculate = document.querySelector("#calc");
+        let amount= document.querySelector("#amount");
+        let transfer = document.querySelector("#transfer");
+        let total = document.querySelector("#total");
+
+        calculate.addEventListener('click',function(){
+            let mmktousd = inputMMK.value / USDRate ; 
+            amount.innerHTML= "Amount :" + mmktousd.toFixed(2) + " USD" ;
+            let tt = mmktousd - transfee ;
+            total.innerHTML = "Total Amount :" +  tt.toFixed(2)   +" USD"
+            // total.innerHTML = tt.toFixed(2);
+       
+           
+        })
+
+
+
+    </script>
+
+</body>
+</html>
